@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #define MAXPL 15
 #define NL 3
 typedef enum {premier,national,artzit} league;
@@ -22,3 +24,12 @@ typedef struct Sports {
 	int numallpl;
 	Player **allPls;
 } Sports;
+Sports *initseason(){
+	Sports *s = malloc(sizeof(Sports));
+	for(int i = 0; i < NL; i++) {
+		s->league[i] = NULL;
+	}
+	s->numallpl = 0;
+	s->allPls = NULL;
+	return s;
+}
